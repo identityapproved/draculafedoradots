@@ -1,0 +1,1 @@
+/home/id.app/.local/share/omf/themes/boxfish/fish_prompt.fish
