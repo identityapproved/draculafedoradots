@@ -40,7 +40,7 @@ set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
 set -g theme_newline_prompt '$ '
 
-set -gx EDITOR nvim
+set -gx EDITOR vim
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -49,6 +49,5 @@ end
 source "$HOME/.config/fish/functions/fish_vi_cursor.fish"
 
 # Battify
-alias cat=$(which bat)
 export MANPAGER="bat -l man -p'"
 
