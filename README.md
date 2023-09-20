@@ -1,8 +1,8 @@
-# Dotfiles for Fedora 38
+# Dotfiles for Fedora
 
-## Collection of dotfiles and configurations aimed at setting up a visually appealing development environment on the Fedora operating system. It features the popular "Dracula" color scheme, known for its dark theme with vibrant and eye-catching color accents.
+### _Collection of dotfiles and configurations aimed at setting up a visually appealing development environment on the Fedora operating system. It features the popular "Dracula" color scheme, known for its dark theme with vibrant and eye-catching color accents._
 
-### Here's a brief description:
+#### Here's a brief description:
 
 - **Alacritty**: A fast, GPU-accelerated terminal emulator for Unix systems.
 
