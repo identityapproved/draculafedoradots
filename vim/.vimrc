@@ -37,7 +37,14 @@ set laststatus=2
 set cursorline
 " set cursorcolumn
 
-set encoding=UTF-8
+" Yank to global clipboard
+set clipboard=unnamedplus
+
+set encoding=utf-8
+set t_Co=256
+set termencoding=utf-8
+
+let g:polyglot_disabled = ['markdown']
 
 call plug#begin('~/.vim/plugged')
 
@@ -51,7 +58,6 @@ Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'PhilRunninger/nerdtree-buffer-ops'
 Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Colors
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -65,6 +71,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'Yggdroot/indentLine'
 Plug 'wakatime/vim-wakatime'
 Plug 'preservim/nerdcommenter'
+Plug 'meain/vim-printer'
 
 " Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
@@ -79,6 +86,9 @@ Plug 'styled-components/vim-styled-components'
 Plug 'mattn/emmet-vim'
 Plug 'mustache/vim-mustache-handlebars'
 
+" Pascal
+Plug 'boeckmann/vim-freepascal'
+
 " Python
 Plug 'vim-python/python-syntax'
 Plug 'davidhalter/jedi-vim'
@@ -86,7 +96,11 @@ Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 
+" AI
+Plug 'github/copilot.vim'
+
 call plug#end()
+
 
 " CoC extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
@@ -107,7 +121,6 @@ colorscheme dracula
 let g:dracula_colorterm = 0
 " set notermguicolors
 " set background=dark
-" set t_Co=256
 " hi clear
 syntax on
 
@@ -119,6 +132,10 @@ hi SignColumn ctermbg=NONE guibg=NONE
 " Indentation
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+" Make calcurse notes markdown conpatible
+autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
+
 " Mappings
 let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
@@ -129,23 +146,30 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
+nnoremap <silent><C-b> :NERDTreeToggle<CR>
+
 nnoremap <silent><F7> :set hlsearch!<CR>
 
+" Copy / Text manipulations
 vnoremap <leader>p "_dP
 vnoremap <leader>y "+y
 nnoremap <leader>y "+cy
 nnoremap <leader>Y gg"+yG 
 " nnoremap <C-b> <Esc>:Lex<CR>:vertical resize 23<CR>
-nnoremap <silent><C-b> :NERDTreeToggle<CR>
-
-nnoremap <leader>n :bnext<cr>
-nnoremap <leader>p :bprevious<cr>
-nnoremap <leader>d :bdelete<cr>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Buffers remaps
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bp :bprevious<cr>
+nnoremap <leader>bd :bdelete<cr>
+nnoremap <leader>bl :Buffers<cr>
 
 " Emmet shortcuts
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key=','
 
+" Printer remaps
+let g:vim_printer_print_below_keybinding = '<leader>prn'
+let g:vim_printer_print_above_keybinding = '<leader>PRN'

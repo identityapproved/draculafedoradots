@@ -28,4 +28,6 @@
 
 - **Ufetch-Fedora**: A system information script that displays information about your Fedora system, often used for system profiling and displaying system details on the command line.
 
-#### polybar in progress...
+- **Polybar**: A highly customizable status bar that you can tailor to your specific needs and style, enhancing your desktop environment even further.
+
+### Enjoy your visually appealing and efficient setup with these dotfiles!

@@ -16,10 +16,9 @@ smart_borders on
 hide_edge_borders smart
 
 # autostart
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec --no-startup-id feh ~/Pictures/wallpapers/ --randomize --bg-fill 
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/fedora.png 
-exec --no-startup-id picom -f --config ~/.config/picom/picom.conf
+exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
+exec --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/fedora.png 
+exec --no-startup-id picom -f --config $HOME/.config/picom/picom.conf
 
 # Start XDG autostart .desktop files using dex. See also
 exec --no-startup-id dex-autostart --autostart --environment i3
@@ -31,6 +30,9 @@ exec --no-startup-id xautolock -time 32 -locker "$HOME/.config/i3/scripts/lock.s
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# Notifications
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -153,24 +155,26 @@ bindsym $mod+Ctrl+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+# bindsym $mod+0 exec "dunstify '(l)ock (e)xit switch(u)ser (s)uspend (h)ibernate (r)eboot (Shift+s)hutdown ESCape'" mode "$mode_system"
+bindsym $mod+0 exec "notify-send -t 6666 -i /usr/share/icons/Adwaita/scalable/devices/computer.svg -u normal '<b>System Options</b>' '(l)ock (e)xit switch(u)ser (s)uspend (h)ibernate (r)eboot (Shift+S)hutdown ESCape'" mode "$mode_system"
+
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
-    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
-    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh switch_user, mode "default"
-    bindsym e exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
-    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+    bindsym l exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym s exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym u exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh switch_user, mode "default"
+    bindsym e exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym h exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id sh ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -208,16 +212,16 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
-bar {
-  colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
+#bar {
+  #colors {
+    #background #282A36
+    #statusline #F8F8F2
+    #separator  #44475A
 
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
-}
+    #focused_workspace  #44475A #44475A #F8F8F2
+    #active_workspace   #282A36 #44475A #F8F8F2
+    #inactive_workspace #282A36 #282A36 #BFBFBF
+    #urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    #binding_mode       #FF5555 #FF5555 #F8F8F2
+  #}
+#}
