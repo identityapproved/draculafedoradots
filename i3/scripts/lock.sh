@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 alpha='dd'
 background='#282a36'
@@ -13,6 +13,7 @@ blue='#6272a4'
 cyan='#8be9fd'
 green='50fa7b'
 
+# https://github.com/Raymo111/i3lock-color
 i3lock \
   --insidever-color=$selection$alpha \
   --insidewrong-color=$selection$alpha \
@@ -47,8 +48,8 @@ i3lock \
   --pass-media-keys \
   --pass-screen-keys \
   --pass-volume-keys \
-  --time-font="AnonymicePro Nerd Font" \
-  --date-font="AnonymicePro Nerd Font" \
-  --layout-font="AnonymicePro Nerd Font" \
-  --verif-font="AnonymicePro Nerd Font" \
-  --wrong-font="AnonymicePro Nerd Font" \
+  --time-font="Iosevka Nerd Font" \
+  --date-font="Iosevka Nerd Font" \
+  --layout-font="Iosevka Nerd Font" \
+  --verif-font="Iosevka Nerd Font" \
+  --wrong-font="Iosevka Nerd Font" \
