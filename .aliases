@@ -1,0 +1,10 @@
+alias bashconfig="nvim ~/.bashrc"
+alias ohmybash="nvim ~/.oh-my-bash"
+alias tmuxconfig="nvim ~/.config/tmux/tmux.conf"
+alias aliasconfig="nvim ~/.aliases"
+alias i3config="nvim ~/.config/i3/config"
+
+alias t="trans"
+alias q="exit"
+
+alias v='nvim' # default Neovim config

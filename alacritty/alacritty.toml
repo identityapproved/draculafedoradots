@@ -1,5 +1,5 @@
 [shell]
-program = "/bin/zsh"
+program = "/bin/bash"
 args = [ "-l", "-c", "tmux" ]
 
 [window]
@@ -21,23 +21,7 @@ history = 5000
 multiplier = 3
 
 [font]
-size = 13
-
-  [font.normal]
-  family = "Iosevka Nerd Font"
-  style = "Regular"
-
-  [font.bold]
-  family = "Iosevka Nerd Font"
-  style = "Bold"
-
-  [font.italic]
-  family = "Iosevka Nerd Font"
-  style = "Italic"
-
-  [font.bold_italic]
-  family = "Iosevka Nerd Font"
-  style = "Bold Italic"
+size = 11
 
   [font.offset]
   x = 0
