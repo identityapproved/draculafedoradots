@@ -1,4 +1,5 @@
 alias bashconfig="nvim ~/.bashrc"
+alias srcbash="source ~/.bashrc"
 alias ohmybash="nvim ~/.oh-my-bash"
 alias tmuxconfig="nvim ~/.config/tmux/tmux.conf"
 alias aliasconfig="nvim ~/.aliases"
@@ -8,3 +9,6 @@ alias t="trans"
 alias q="exit"
 
 alias v='nvim' # default Neovim config
+
+alias py='python3'
+alias lz='lazygit'
