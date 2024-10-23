@@ -6,6 +6,7 @@ esac
 
 # Path to your oh-my-bash installation.
 export OSH='/home/identityapproved/.oh-my-bash'
+export PATH="$HOME/.local/bin:$PATH"
 . "$HOME/.cargo/env"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -146,5 +147,4 @@ source "$OSH"/oh-my-bash.sh
 #
 # Example aliases
 source $HOME/.aliases
-. "$HOME/.cargo/env"
 cbonsai -p
