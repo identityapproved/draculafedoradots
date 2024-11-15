@@ -55,8 +55,8 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec alacritty
 
-# start ranger
-bindsym $mod+Shift+f exec "kitty -e ranger"
+# start yazi
+bindsym $mod+Shift+f exec "kitty -e yazi"
 
 # kill focused window
 bindsym $mod+Shift+q kill
