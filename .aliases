@@ -6,6 +6,7 @@ alias aliasconfig="nvim ~/.aliases"
 alias i3config="nvim ~/.config/i3/config"
 
 alias t="trans"
+alias cd='z'
 alias q="exit"
 
 alias v='nvim' # default Neovim config
