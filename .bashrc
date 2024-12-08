@@ -9,6 +9,9 @@ export OSH='/home/identityapproved/.oh-my-bash'
 export PATH="$HOME/.local/bin:$PATH"
 . "$HOME/.cargo/env"
 
+# Set vim as the default editor
+set -o vi
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="random"
@@ -148,3 +151,4 @@ source "$OSH"/oh-my-bash.sh
 # Example aliases
 source $HOME/.aliases
 cbonsai -p
+
